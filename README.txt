@@ -13,6 +13,7 @@ Pour lancer le serveur il faut :
     -  Aller dans projet_server_Side_MBDS/server/
     -  Exécuter la commande "npm install"
     -  Exécuter la commande "node server.js"
+	-importer la dat video dans mongo db :  mongoimport --db test --collection videos --drop --file projet_server_Side_MBDS\data_video.js
 
 Cahier des charges:
 
