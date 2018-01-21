@@ -1,41 +1,53 @@
 PROJET SERVER SIDE MIAGE MBDS 
-Mini projet à rendre avant le 31 Janvier (MBDS)
-Vous devrez réaliser, avec un des trois frameworks vus en cours (VueJS, React, Angular 4/5), une application "galerie vidéo" présentant des vidéos YouTube faites par les élèves du MBDS, 30 secondes maximum, présentant le MBDS en entier ou juste une de ses facettes.
+Mini projet ï¿½ rendre avant le 31 Janvier (MBDS)
+Vous devrez rï¿½aliser, avec un des trois frameworks vus en cours (VueJS, React, Angular 4/5), une application "galerie vidï¿½o" prï¿½sentant des vidï¿½os YouTube faites par les ï¿½lï¿½ves du MBDS, 30 secondes maximum, prï¿½sentant le MBDS en entier ou juste une de ses facettes.
+
+Lancer le serveur :
+Pour lancer le serveur il faut :
+    -  Ouvrir une premiÃ¨re invite de commandes
+    -  ExÃ©cuter la commande "mongod"
+    -  Ouvrir une DeuxiÃ¨me invite de commandes
+    -  Aller dans projet_server_Side_MBDS/angular_client/client-video
+    -  ExÃ©cuter la commande "npm install"
+    -  ExÃ©cuter la commande "ng build"
+    -  Aller dans projet_server_Side_MBDS/server/
+    -  ExÃ©cuter la commande "npm install"
+    -  ExÃ©cuter la commande "node server.js"
 
 Cahier des charges:
 
-Description générale
+Description gï¿½nï¿½rale
 
-L'application est une galerie de vidéos. On suppose que les vidéos ont été postées sur YouTube, et qu'elles sont accessibles via leur URL. Je suggère que la promo fasse une chaine MBDS dans laquelle l'ensemble des vidéos sera posté.
+L'application est une galerie de vidï¿½os. On suppose que les vidï¿½os ont ï¿½tï¿½ postï¿½es sur YouTube, et qu'elles sont accessibles via leur URL. Je suggï¿½re que la promo fasse une chaine MBDS dans laquelle l'ensemble des vidï¿½os sera postï¿½.
  
-L'application que vous allez développer permettra d'ajouter/modifier/supprimer/afficher des vidéos sous la forme d'une galerie. 
+L'application que vous allez dï¿½velopper permettra d'ajouter/modifier/supprimer/afficher des vidï¿½os sous la forme d'une galerie. 
  
-Visualisation de la gallerie / lecture des vidéos
+Visualisation de la gallerie / lecture des vidï¿½os
 
-Une fois arrivé sur la page de départ, on voit une liste de vidéos (par défaut elles ne sont pas en lecture, on ne voit que le lecteur vidéo en mode "statique", on peut imaginer aussi afficher une image par vidéo, si on clique sur l'image ça lance la vidéo), sous la vidéo on voit sa légende (une ligne, par exemple le nom de la personne sur la vidéo ou le titre de la vidéo).
+Une fois arrivï¿½ sur la page de dï¿½part, on voit une liste de vidï¿½os (par dï¿½faut elles ne sont pas en lecture, on ne voit que le lecteur vidï¿½o en mode "statique", on peut imaginer aussi afficher une image par vidï¿½o, si on clique sur l'image ï¿½a lance la vidï¿½o), sous la vidï¿½o on voit sa lï¿½gende (une ligne, par exemple le nom de la personne sur la vidï¿½o ou le titre de la vidï¿½o).
  
-Si on clique sur une vidéo, ça joue la vidéo, et on peut voir sa description. On utilisera simplement dans le template d'un composant que vous crééerez pour jouer la vidéo, le code HTML (une iframe) proposé par YouTube pour insérer une vidéo dans une page Web.
+Si on clique sur une vidï¿½o, ï¿½a joue la vidï¿½o, et on peut voir sa description. On utilisera simplement dans le template d'un composant que vous crï¿½ï¿½erez pour jouer la vidï¿½o, le code HTML (une iframe) proposï¿½ par YouTube pour insï¿½rer une vidï¿½o dans une page Web.
  
-A priori on n'a pas besoin de pagination, on affichera toutes les imagettes des vidéos sur une simple page.
+A priori on n'a pas besoin de pagination, on affichera toutes les imagettes des vidï¿½os sur une simple page.
  
-Facultatif  : faire de la pagination et permettre à l'application de gérer un plus grand nombre de vidéos.
+Facultatif  : faire de la pagination et permettre ï¿½ l'application de gï¿½rer un plus grand nombre de vidï¿½os.
  
-Facultatif : Possibilité de noter la vidéo avec des étoiles (1 à 5 étoiles), dans un premier temps on ne vérifiera pas qu'un utilisateur puisse voter plusieurs fois. On essaiera de réfléchir à un système essayant d'interdire les votes multiples, sans que l'utilisateur ait besoin de s'authentifier.
+Facultatif : Possibilitï¿½ de noter la vidï¿½o avec des ï¿½toiles (1 ï¿½ 5 ï¿½toiles), dans un premier temps on ne vï¿½rifiera pas qu'un utilisateur puisse voter plusieurs fois. On essaiera de rï¿½flï¿½chir ï¿½ un systï¿½me essayant d'interdire les votes multiples, sans que l'utilisateur ait besoin de s'authentifier.
  
-Ajout d'une vidéo
+Ajout d'une vidï¿½o
 
-Un bouton ou une entrée de menu permettra d'ajouter une nouvelle vidéo. On demandera l'URL de la vidéo YouTube, une description de quelques lignes, et une légende pour afficher sous la vidéo. On vérifiera que la vidéo n'a pas déjà été ajoutée. On vérifiera aussi que les champs description et légende ne sont pas vides avant de publier la vidéo.
+Un bouton ou une entrï¿½e de menu permettra d'ajouter une nouvelle vidï¿½o. On demandera l'URL de la vidï¿½o YouTube, une description de quelques lignes, et une lï¿½gende pour afficher sous la vidï¿½o. On vï¿½rifiera que la vidï¿½o n'a pas dï¿½jï¿½ ï¿½tï¿½ ajoutï¿½e. On vï¿½rifiera aussi que les champs description et lï¿½gende ne sont pas vides avant de publier la vidï¿½o.
  
-Facultatif : utiliser l'API de YouTube pour récupérer la description de la vidéo et la légende (le titre de la vidéo) directement sur YouTube. On supposera dans un premier temps que la clé d'API est codée "en dur", vous pourrez, si vous avez le temps et si vous êtes à l'aise, prévoir un menu "paramètres" dans lequel vous pourrez coller la clé d'API qui sera utilisée par l'application.
+Facultatif : utiliser l'API de YouTube pour rï¿½cupï¿½rer la description de la vidï¿½o et la lï¿½gende (le titre de la vidï¿½o) directement sur YouTube. On supposera dans un premier temps que la clï¿½ d'API est codï¿½e "en dur", vous pourrez, si vous avez le temps et si vous ï¿½tes ï¿½ l'aise, prï¿½voir un menu "paramï¿½tres" dans lequel vous pourrez coller la clï¿½ d'API qui sera utilisï¿½e par l'application.
  
-Modification d'une vidéo
+Modification d'une vidï¿½o
 
-On pourra modifier la description ou la légende d'une vidéo après publication. Ce ne sera pas modifié sur YouTube, ou bien (facultatif) optionellement (case à cocher ?)
+On pourra modifier la description ou la lï¿½gende d'une vidï¿½o aprï¿½s publication. Ce ne sera pas modifiï¿½ sur YouTube, ou bien (facultatif) optionellement (case ï¿½ cocher ?)
  
-Suppression d'une vidéo
+Suppression d'une vidï¿½o
 
-On pourra ajouter un bouton ou une croix pour supprimer une vidéo. La vidéo ne sera supprimée que de votre base de données, pas sur YouTube.
+On pourra ajouter un bouton ou une croix pour supprimer une vidï¿½o. La vidï¿½o ne sera supprimï¿½e que de votre base de donnï¿½es, pas sur YouTube.
 BACK END :
 
 Vous utiliserez soit MongoDB et NodeJS/Express comme dans les TPs, soit FireBase.
-Attention, si vous faites un projet "serveur" avec node + express + mongo, et un autre projet "front end", assurez-vous que la configuration du serveur node accepte bien les requêtes cross-domain. 
+Attention, si vous faites un projet "serveur" avec node + express + mongo, et un autre projet "front end", assurez-vous que la configuration du serveur node accepte bien les requï¿½tes cross-domain. 

@@ -12,31 +12,22 @@ const bodyParser = require('body-parser');
 
 // Cette ligne indique le répertoire qui contient
 // les fichiers statiques: html, css, js, images etc.
-app.use(express.static(path.join(__dirname, '../', 'app/public'))); // à changer pour le bon dossier
+app.use(express.static(path.join(__dirname, '../', 'angular_client/client-video/dist/')));
 // Paramètres standards du module bodyParser
 // qui sert à  récupérer des paramètres reçus
 // par ex, par l'envoi d'un formulaire "standard"
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
-
-// Lance le serveur avec express
-server.listen(port);
-
-console.log("Serveur lancÃ© sur le port : " + port);
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 //------------------
 // ROUTES
 //------------------
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../', 'app/public', 'index.html')); // à changer pour le bon index
-});
 
 // Ici des routes en :
 // http GET (pour récupérer des données)
@@ -70,13 +61,26 @@ app.get('/api/connection', function(req, res) {
 
 // Check si l'url est déjà utilisé
 // rend true si l'url est pas déjà stoké
-app.get('/api/checkurl', mongoDBModule.checkURL(req, res, function (response) {
-    res.send(JSON.stringify(response));
-}));
+app.get('/api/checkurl', function (req, res) {
+    mongoDBModule.checkURL(req.params, function (response) {
+        res.send(JSON.stringify(response));
+    });
+});
 
 // Met à jour la vidéo
 // rend un message de réussite si la mise à jour à réussie
 // un message d'erreur sinon
-app.put('/api/checkurl', mongoDBModule.updateVideo(req, res, function (response) {
-    res.send(JSON.stringify(response));
-}));
+app.put('/api/checkurl', function (req, res) {
+    mongoDBModule.updateVideo(req.body, function (response) {
+        res.send(JSON.stringify(response));
+    });
+});
+
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../', 'angular_client/client-video/dist/', 'index.html'));
+});
+
+// Lance le serveur avec express
+server.listen(port);
+
+console.log("Serveur lancÃ© sur le port : " + port);

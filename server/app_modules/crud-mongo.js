@@ -11,11 +11,11 @@ exports.connexionMongo = function(callback) {
     });
 };
 
-exports.checkURL = function(req, res, callback) {
+exports.checkURL = function(params, callback) {
     MongoClient.connect(url, function(err, db) {
         if(!err) {
             // La requete mongoDB
-            var myquery = { "url": req.params.url};
+            var myquery = { "url": params.url};
             db.collection("restaurants")
                 .findOne(myquery, function(err, data) {
                     var reponse;
@@ -49,13 +49,13 @@ exports.checkURL = function(req, res, callback) {
     });
 };
 
-exports.updateVideo = function(req, res, callback) {
+exports.updateVideo = function(body, callback) {
     MongoClient.connect(url, function(err, db) {
         if(!err) {
             var myquery = { "_id": ObjectId(id)};
             var newvalues = {
-                name : req.body.description,
-                cuisine : req.body.legende
+                name : body.description,
+                cuisine : body.legende
             };
             db.collection("restaurants")
                 .updateOne(myquery, newvalues, function(err, result) {
