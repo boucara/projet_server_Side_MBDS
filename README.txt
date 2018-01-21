@@ -1,6 +1,6 @@
 PROJET SERVER SIDE MIAGE MBDS 
-Mini projet � rendre avant le 31 Janvier (MBDS)
-Vous devrez r�aliser, avec un des trois frameworks vus en cours (VueJS, React, Angular 4/5), une application "galerie vid�o" pr�sentant des vid�os YouTube faites par les �l�ves du MBDS, 30 secondes maximum, pr�sentant le MBDS en entier ou juste une de ses facettes.
+Mini projet à rendre avant le 31 Janvier (MBDS)
+Vous devrez réaliser, avec un des trois frameworks vus en cours (VueJS, React, Angular 4/5), une application "galerie vidéo" présentant des vidéos YouTube faites par les éléves du MBDS, 30 secondes maximum, présentant le MBDS en entier ou juste une de ses facettes.
 
 Lancer le serveur :
 Pour lancer le serveur il faut :
@@ -16,38 +16,38 @@ Pour lancer le serveur il faut :
 
 Cahier des charges:
 
-Description g�n�rale
+Description générale
 
-L'application est une galerie de vid�os. On suppose que les vid�os ont �t� post�es sur YouTube, et qu'elles sont accessibles via leur URL. Je sugg�re que la promo fasse une chaine MBDS dans laquelle l'ensemble des vid�os sera post�.
+L'application est une galerie de vidéos. On suppose que les vidéos ont été postées sur YouTube, et qu'elles sont accessibles via leur URL. Je suggère que la promo fasse une chaine MBDS dans laquelle l'ensemble des vidéos sera posté.
  
-L'application que vous allez d�velopper permettra d'ajouter/modifier/supprimer/afficher des vid�os sous la forme d'une galerie. 
+L'application que vous allez développer permettra d'ajouter/modifier/supprimer/afficher des vidéos sous la forme d'une galerie. 
  
-Visualisation de la gallerie / lecture des vid�os
+Visualisation de la gallerie / lecture des vidéos
 
-Une fois arriv� sur la page de d�part, on voit une liste de vid�os (par d�faut elles ne sont pas en lecture, on ne voit que le lecteur vid�o en mode "statique", on peut imaginer aussi afficher une image par vid�o, si on clique sur l'image �a lance la vid�o), sous la vid�o on voit sa l�gende (une ligne, par exemple le nom de la personne sur la vid�o ou le titre de la vid�o).
+Une fois arrivé sur la page de départ, on voit une liste de vidéos (par défaut elles ne sont pas en lecture, on ne voit que le lecteur vidéo en mode "statique", on peut imaginer aussi afficher une image par vidéo, si on clique sur l'image ça lance la vidéo), sous la vidéo on voit sa légende (une ligne, par exemple le nom de la personne sur la vidéo ou le titre de la vidéo).
  
-Si on clique sur une vid�o, �a joue la vid�o, et on peut voir sa description. On utilisera simplement dans le template d'un composant que vous cr��erez pour jouer la vid�o, le code HTML (une iframe) propos� par YouTube pour ins�rer une vid�o dans une page Web.
+Si on clique sur une vidéo, ça joue la vidéo, et on peut voir sa description. On utilisera simplement dans le template d'un composant que vous crééerez pour jouer la vidéo, le code HTML (une iframe) proposé par YouTube pour insérer une vidéo dans une page Web.
  
-A priori on n'a pas besoin de pagination, on affichera toutes les imagettes des vid�os sur une simple page.
+A priori on n'a pas besoin de pagination, on affichera toutes les imagettes des vidéos sur une simple page.
  
-Facultatif  : faire de la pagination et permettre � l'application de g�rer un plus grand nombre de vid�os.
+Facultatif  : faire de la pagination et permettre é l'application de gérer un plus grand nombre de vidéos.
  
-Facultatif : Possibilit� de noter la vid�o avec des �toiles (1 � 5 �toiles), dans un premier temps on ne v�rifiera pas qu'un utilisateur puisse voter plusieurs fois. On essaiera de r�fl�chir � un syst�me essayant d'interdire les votes multiples, sans que l'utilisateur ait besoin de s'authentifier.
+Facultatif : Possibilité de noter la vidéo avec des étoiles (1 é 5 étoiles), dans un premier temps on ne vérifiera pas qu'un utilisateur puisse voter plusieurs fois. On essaiera de réfléchir é un systéme essayant d'interdire les votes multiples, sans que l'utilisateur ait besoin de s'authentifier.
  
-Ajout d'une vid�o
+Ajout d'une vidéo
 
-Un bouton ou une entr�e de menu permettra d'ajouter une nouvelle vid�o. On demandera l'URL de la vid�o YouTube, une description de quelques lignes, et une l�gende pour afficher sous la vid�o. On v�rifiera que la vid�o n'a pas d�j� �t� ajout�e. On v�rifiera aussi que les champs description et l�gende ne sont pas vides avant de publier la vid�o.
+Un bouton ou une entrée de menu permettra d'ajouter une nouvelle vidéo. On demandera l'URL de la vidéo YouTube, une description de quelques lignes, et une légende pour afficher sous la vidéo. On vérifiera que la vidéo n'a pas déjà été ajoutée. On vérifiera aussi que les champs description et légende ne sont pas vides avant de publier la vidéo.
  
-Facultatif : utiliser l'API de YouTube pour r�cup�rer la description de la vid�o et la l�gende (le titre de la vid�o) directement sur YouTube. On supposera dans un premier temps que la cl� d'API est cod�e "en dur", vous pourrez, si vous avez le temps et si vous �tes � l'aise, pr�voir un menu "param�tres" dans lequel vous pourrez coller la cl� d'API qui sera utilis�e par l'application.
+Facultatif : utiliser l'API de YouTube pour récupérer la description de la vidéo et la légende (le titre de la vidéo) directement sur YouTube. On supposera dans un premier temps que la clé d'API est codée "en dur", vous pourrez, si vous avez le temps et si vous êtes à l'aise, prévoir un menu "paramètres" dans lequel vous pourrez coller la clé d'API qui sera utilisée par l'application.
  
-Modification d'une vid�o
+Modification d'une vidéo
 
-On pourra modifier la description ou la l�gende d'une vid�o apr�s publication. Ce ne sera pas modifi� sur YouTube, ou bien (facultatif) optionellement (case � cocher ?)
+On pourra modifier la description ou la légende d'une vidéo après publication. Ce ne sera pas modifié sur YouTube, ou bien (facultatif) optionellement (case à cocher ?)
  
-Suppression d'une vid�o
+Suppression d'une vidéo
 
-On pourra ajouter un bouton ou une croix pour supprimer une vid�o. La vid�o ne sera supprim�e que de votre base de donn�es, pas sur YouTube.
+On pourra ajouter un bouton ou une croix pour supprimer une vidéo. La vidéo ne sera supprimée que de votre base de données, pas sur YouTube.
 BACK END :
 
 Vous utiliserez soit MongoDB et NodeJS/Express comme dans les TPs, soit FireBase.
-Attention, si vous faites un projet "serveur" avec node + express + mongo, et un autre projet "front end", assurez-vous que la configuration du serveur node accepte bien les requ�tes cross-domain. 
+Attention, si vous faites un projet "serveur" avec node + express + mongo, et un autre projet "front end", assurez-vous que la configuration du serveur node accepte bien les requêtes cross-domain.
