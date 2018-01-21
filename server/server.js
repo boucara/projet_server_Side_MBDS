@@ -10,11 +10,11 @@ const mongoDBModule = require('./app_modules/crud-mongo');
 // Pour les formulaires standards
 const bodyParser = require('body-parser');
 
-// Cette ligne indique le rÃ©pertoire qui contient
+// Cette ligne indique le répertoire qui contient
 // les fichiers statiques: html, css, js, images etc.
-app.use(express.static(path.join(__dirname, '../', 'app/public'))); // à changer pour le bon index
-// ParamÃ¨tres standards du modyle bodyParser
-// qui sert Ã  rÃ©cupÃ©rer des paramÃ¨tres reÃ§us
+app.use(express.static(path.join(__dirname, '../', 'app/public'))); // à changer pour le bon dossier
+// Paramètres standards du module bodyParser
+// qui sert à  récupérer des paramètres reçus
 // par ex, par l'envoi d'un formulaire "standard"
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -34,29 +34,24 @@ console.log("Serveur lancÃ© sur le port : " + port);
 //------------------
 // ROUTES
 //------------------
-// Utile pour indiquer la home page, dans le cas
-// ou il ne s'agit pas de public/index.html
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../', 'app/public', 'index.html')); // à changer pour le bon index
 });
 
 // Ici des routes en :
-// http GET (pour rÃ©cupÃ©rer des donnÃ©es)
-// http POST : pour insÃ©rer des donnÃ©es
+// http GET (pour récupérer des données)
+// http POST : pour insérer des données
 // http PUT pour modifier des donnÃ©es
-// http DELETE pour supprimer des donnÃ©es
+// http DELETE pour supprimer des données
 
 //----------------------------------------------
 // Ces routes forment l'API de l'application !!
 //----------------------------------------------
 
-// Test de la connexion Ã  la base
+// Test de la connexion à la base
 app.get('/api/connection', function(req, res) {
-    // Pour le moment on simule, mais aprÃ¨s on devra
-    // rÃ©ellement se connecte Ã  la base de donnÃ©es
-    // et renvoyer une valeur pour dire si tout est ok
     mongoDBModule.connexionMongo(function(err, db) {
-        let reponse;
+        var reponse;
 
         if(err) {
             console.log("erreur connexion");
@@ -65,10 +60,23 @@ app.get('/api/connection', function(req, res) {
             }
         } else {
             reponse = {
-                msg: "connexion Ã©tablie"
+                msg: "connexion établie"
             }
         }
         res.send(JSON.stringify(reponse));
 
     });
 });
+
+// Check si l'url est déjà utilisé
+// rend true si l'url est pas déjà stoké
+app.get('/api/checkurl', mongoDBModule.checkURL(req, res, function (response) {
+    res.send(JSON.stringify(response));
+}));
+
+// Met à jour la vidéo
+// rend un message de réussite si la mise à jour à réussie
+// un message d'erreur sinon
+app.put('/api/checkurl', mongoDBModule.updateVideo(req, res, function (response) {
+    res.send(JSON.stringify(response));
+}));
