@@ -16,7 +16,7 @@ exports.checkURL = function(params, callback) {
         if(!err) {
             // La requete mongoDB
             var myquery = { "url": params.url};
-            db.collection("restaurants")
+            db.collection("videos")
                 .findOne(myquery, function(err, data) {
                     var reponse;
 
@@ -57,7 +57,7 @@ exports.updateVideo = function(body, callback) {
                 name : body.description,
                 cuisine : body.legende
             };
-            db.collection("restaurants")
+            db.collection("videos")
                 .updateOne(myquery, newvalues, function(err, result) {
                     if(!err){
                         reponse = {
@@ -81,6 +81,26 @@ exports.updateVideo = function(body, callback) {
                 msg:"Problème lors de la modification, erreur de connexion."
             };
             callback(reponse);
+        }
+    });
+};
+exports.findVideos = function(page, pagesize, callback) {
+    MongoClient.connect(url, function(err, db) {
+        console.log("pagesize = " + pagesize);
+        console.log("page = " + page);
+        var selection ={};
+       
+
+        if(!err){
+            db.collection('videos')
+                .find(selection)
+                .skip(page*pagesize)
+                .limit(pagesize)
+                .toArray()
+                .then(arr => callback(arr));
+        }
+        else{
+            callback(-1);
         }
     });
 };

@@ -61,9 +61,17 @@ app.get('/api/connection', function(req, res) {
 
 // Check si l'url est déjà utilisé
 // rend true si l'url est pas déjà stoké
-app.get('/api/checkurl', function (req, res) {
-    mongoDBModule.checkURL(req.params, function (response) {
-        res.send(JSON.stringify(response));
+app.get('/api/videos', function(req, res) {
+    // Si prÃ©sent on prend la valeur du param, sinon 1
+    let page = parseInt(req.query.page || 1);
+    // idem si present on prend la valeur, sinon 10
+    let pagesize = parseInt(req.query.pagesize || 10);
+     mongoDBModule.findvideos(page, pagesize,  function(data) {
+        var objdData = {
+            msg:"la liste des videos avec succes",
+            data: data
+        }
+        res.send(JSON.stringify(objdData));
     });
 });
 
