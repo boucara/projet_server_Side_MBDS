@@ -66,7 +66,8 @@ app.get('/api/videos', function(req, res) {
     let page = parseInt(req.query.page || 1);
     // idem si present on prend la valeur, sinon 10
     let pagesize = parseInt(req.query.pagesize || 10);
-     mongoDBModule.findvideos(page, pagesize,  function(data) {
+     mongoDBModule.findVideos(page, pagesize,  function(data) {
+         console.log(data);
         var objdData = {
             msg:"la liste des videos avec succes",
             data: data

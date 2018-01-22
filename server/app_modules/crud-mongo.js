@@ -89,8 +89,6 @@ exports.findVideos = function(page, pagesize, callback) {
         console.log("pagesize = " + pagesize);
         console.log("page = " + page);
         var selection ={};
-       
-
         if(!err){
             db.collection('videos')
                 .find(selection)
