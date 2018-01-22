@@ -78,7 +78,7 @@ app.get('/api/connection', function(req, res) {
 // rend true si l'url est pas déjà stoké
 app.get('/api/videos', function(req, res) {
     // Si prÃ©sent on prend la valeur du param, sinon 1
-    let page = parseInt(req.query.page || 1);
+    let page = parseInt(req.query.page || 0);
     // idem si present on prend la valeur, sinon 10
     let pagesize = parseInt(req.query.pagesize || 10);
      mongoDBModule.findVideos(page, pagesize,  function(data) {
