@@ -1,14 +1,24 @@
 const express  = require('express');
+
 var path = require('path');
 const app      = express();
 const port     = process.env.PORT || 3000;
 const server   = require('http').Server(app);
+
+// pour les formulaires multiparts
+var multer = require('multer');
+var multerData = multer();
+
+
 
 
 const mongoDBModule = require('./app_modules/crud-mongo');
 
 // Pour les formulaires standards
 const bodyParser = require('body-parser');
+// pour les formulaires multiparts
+var multer = require('multer');
+var multerData = multer();
 
 // Cette ligne indique le répertoire qui contient
 // les fichiers statiques: html, css, js, images etc.
@@ -19,12 +29,17 @@ app.use(express.static(path.join(__dirname, '../', 'angular_client/client-video/
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.use(function (req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
 
+
+app.use(function (req, res, next) {
+     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+     next();
+ });
+// Lance le serveur avec express
+server.listen(port);
+
+console.log("Serveur lancÃ© sur le port : " + port);
 //------------------
 // ROUTES
 //------------------
@@ -67,7 +82,7 @@ app.get('/api/videos', function(req, res) {
     // idem si present on prend la valeur, sinon 10
     let pagesize = parseInt(req.query.pagesize || 10);
      mongoDBModule.findVideos(page, pagesize,  function(data) {
-         console.log(data);
+         console.log(data.JSON);
         var objdData = {
             msg:"la liste des videos avec succes",
             data: data
@@ -88,8 +103,15 @@ app.put('/api/checkurl', function (req, res) {
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '../', 'angular_client/client-video/dist/', 'index.html'));
 });
+app.post('/api/videos', multerData.fields([]), function(req, res) {
+	// On supposera qu'on ajoutera un restaurant en 
+	// donnant son nom et sa cuisine. On va donc 
+	// recuperer les données du formulaire d'envoi
+	// les params sont dans req.body même si le formulaire
+	// est envoyé en multipart
 
-// Lance le serveur avec express
-server.listen(port);
+ 	mongoDBModule.createVideo(req.body, function(data) {
+ 		res.send(JSON.stringify(data)); 
+ 	});
+});
 
-console.log("Serveur lancÃ© sur le port : " + port);
