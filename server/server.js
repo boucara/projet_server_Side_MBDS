@@ -3,10 +3,7 @@ var path = require('path');
 const app      = express();
 const port     = process.env.PORT || 3000;
 const server   = require('http').Server(app);
-
-
 const mongoDBModule = require('./app_modules/crud-mongo');
-
 // Pour les formulaires standards
 const bodyParser = require('body-parser');
 
@@ -43,7 +40,6 @@ app.use(bodyParser.json());
 app.get('/api/connection', function(req, res) {
     mongoDBModule.connexionMongo(function(err, db) {
         var reponse;
-
         if(err) {
             console.log("erreur connexion");
             reponse = {
@@ -55,7 +51,6 @@ app.get('/api/connection', function(req, res) {
             }
         }
         res.send(JSON.stringify(reponse));
-
     });
 });
 
@@ -63,9 +58,9 @@ app.get('/api/connection', function(req, res) {
 // rend true si l'url est pas déjà stoké
 app.get('/api/videos', function(req, res) {
     // Si prÃ©sent on prend la valeur du param, sinon 1
-    let page = parseInt(req.query.page || 1);
+    var page = parseInt(req.query.page || 1);
     // idem si present on prend la valeur, sinon 10
-    let pagesize = parseInt(req.query.pagesize || 10);
+    var pagesize = parseInt(req.query.pagesize || 10);
      mongoDBModule.findVideos(page, pagesize,  function(data) {
          console.log(data);
         var objdData = {
@@ -79,12 +74,22 @@ app.get('/api/videos', function(req, res) {
 // Met à jour la vidéo
 // rend un message de réussite si la mise à jour à réussie
 // un message d'erreur sinon
-app.put('/api/checkurl', function (req, res) {
+app.put('/api/video', function (req, res) {
     mongoDBModule.updateVideo(req.body, function (response) {
         res.send(JSON.stringify(response));
     });
 });
 
+// Met à jour la vidéo
+// rend un message de réussite si la mise à jour à réussie
+// un message d'erreur sinon
+app.put('/api/checkurl', function (req, res) {
+    mongoDBModule.checkURL(req.params, function (response) {
+        res.send(JSON.stringify(response));
+    });
+});
+
+// Retourne l'index de l'application cliente
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '../', 'angular_client/client-video/dist/', 'index.html'));
 });
@@ -92,4 +97,4 @@ app.get('*', function(req, res) {
 // Lance le serveur avec express
 server.listen(port);
 
-console.log("Serveur lancÃ© sur le port : " + port);
+console.log("Serveur lancé sur le port : " + port);
