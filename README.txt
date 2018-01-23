@@ -6,14 +6,16 @@ Lancer le serveur :
 Pour lancer le serveur il faut :
     -  Ouvrir une première invite de commandes
     -  Exécuter la commande "mongod"
-    -  Ouvrir une Deuxième invite de commandes
+    -  Ouvrir une deuxième invite de commandes
     -  Aller dans projet_server_Side_MBDS/angular_client/client-video
     -  Exécuter la commande "npm install"
     -  Exécuter la commande "ng build"
     -  Aller dans projet_server_Side_MBDS/server/
     -  Exécuter la commande "npm install"
     -  Exécuter la commande "node server.js"
-	-importer la dat video dans mongo db :  mongoimport --db test --collection videos --drop --file projet_server_Side_MBDS\data_video.js
+    -  Ouvrir une troixième invite de commandes
+    -  Aller dans projet_server_Side_MBDS/
+	-  Importer la dat video dans mongo db :  mongoimport --db test --collection videos --jsonArray --drop --file data_video.js
 
 Cahier des charges:
 
