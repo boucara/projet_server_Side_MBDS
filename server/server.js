@@ -1,4 +1,5 @@
 const express  = require('express');
+
 var path = require('path');
 const app      = express();
 const port     = process.env.PORT || 3000;
@@ -17,10 +18,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // app.use(function (req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
+//      res.header("Access-Control-Allow-Origin", "*");
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
+//      next();
+//  });
 
 //------------------
 // ROUTES
@@ -54,15 +55,14 @@ app.get('/api/connection', function(req, res) {
     });
 });
 
-// Check si l'url est déjà utilisé
-// rend true si l'url est pas déjà stoké
+// Rend la liste des vidéos
 app.get('/api/videos', function(req, res) {
     // Si prÃ©sent on prend la valeur du param, sinon 1
-    var page = parseInt(req.query.page || 1);
+    var page = parseInt(req.query.page || 0);
     // idem si present on prend la valeur, sinon 10
     var pagesize = parseInt(req.query.pagesize || 10);
      mongoDBModule.findVideos(page, pagesize,  function(data) {
-         console.log(data);
+         console.log(data.JSON);
         var objdData = {
             msg:"la liste des videos avec succes",
             data: data
@@ -80,12 +80,18 @@ app.put('/api/video', function (req, res) {
     });
 });
 
-// Met à jour la vidéo
-// rend un message de réussite si la mise à jour à réussie
-// un message d'erreur sinon
+// Check si l'url est déjà utilisé
+// rend true si l'url est pas déjà stoké
 app.put('/api/checkurl', function (req, res) {
     mongoDBModule.checkURL(req.params, function (response) {
         res.send(JSON.stringify(response));
+    });
+});
+
+// ajoute une nouvelle vidéo en base de données
+app.post('/api/videos', function(req, res) {
+    mongoDBModule.createVideo(req.body, function(data) {
+        res.send(JSON.stringify(data));
     });
 });
 
@@ -97,4 +103,4 @@ app.get('*', function(req, res) {
 // Lance le serveur avec express
 server.listen(port);
 
-console.log("Serveur lancé sur le port : " + port);
+console.log("Serveur lancÃ© sur le port : " + port);

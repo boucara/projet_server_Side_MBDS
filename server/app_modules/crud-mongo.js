@@ -102,3 +102,43 @@ exports.findVideos = function(page, pagesize, callback) {
         }
     });
 };
+exports.createVideo = function(formData, callback) {
+	MongoClient.connect(url, function(err, db) {
+	    if(!err) {
+	 
+			let toInsert = {
+				url : formData.url, 
+                description : formData.description,
+                titre:formData.titre
+			};
+			console.dir(JSON.stringify(toInsert));
+		    db.collection("videos")
+		    .insertOne(toInsert, function(err, result) {
+		    	let reponse;
+
+		        if(!err){
+		            reponse = {
+		                succes : true,
+		                result: result,
+		                error : null,
+		                msg: "Ajout réussi " + result
+		            };
+		        } else {
+		            reponse = {
+		                succes : false,
+		                error : err,
+		                msg: "Problème à l'insertion"
+		            };
+		        }
+		        callback(reponse);
+		    });
+		} else{
+			let reponse = reponse = {
+                    	succes: false,
+                        error : err,
+                        msg:"Problème lors de l'insertion, erreur de connexion."
+                    };
+            callback(reponse);
+		}
+	});
+}
