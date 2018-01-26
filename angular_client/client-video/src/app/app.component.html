@@ -3,12 +3,18 @@
 
   <div class="sidenav">
      
-    <a href="#about" class="icon-home"> Accueil</a>
-    <a href="#services">Ajout vidéo</a>
-    <a href="#clients">Paramétre</a>
-    <a href="#contact">Contact</a>
-    
-    </div>
+    <a routerLink="/" class="icon-home"> Accueil</a><hr>
+    <a routerLink="/addvideo">Ajout vidéo</a><hr>
+    <a href="#contact">Contact</a><hr>
+    <p class="contact">MASTER MBDS</p><hr>
+    <p class="contact">Site des Lucioles-Bureau 221
+                      1645 route des Lucioles
+                        06410 Biot </p><hr>
+    <p class="contact">Caroline Poirier </p><hr>
+    <p class="contact">Tél : 04.92.38.85.29
+        Email : Caroline.POIRIER@unice.fr
+    </p><hr>
+ </div>
   
   <div class="main">
     <table class="table">
@@ -18,12 +24,7 @@
         <td><a href="http://www.mbds-fr.org/"><img class="logo-mbds" src="./assets/images/logo-mbds.jpg"></a></td>
       </tr>
     </table>
-    <div class = "mydiv">
-     <div *ngFor="let a of videos">
-        <iframe  class="video" [src] ="serialiseURL(a.url)"></iframe>
-        <p>{{a.titre}}</p>
-     </div>
-    </div>
+    <router-outlet></router-outlet>
    
     
     </div>

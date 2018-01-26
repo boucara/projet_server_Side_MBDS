@@ -1,0 +1,6 @@
+<div class = "mydiv">
+    <div *ngFor="let a of videos">
+       <iframe  class="video" [src] ="serialiseURL(a.url)"></iframe>
+       <p>{{a.titre}}</p>
+    </div>
+   </div>
