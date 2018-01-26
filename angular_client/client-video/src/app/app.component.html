@@ -19,34 +19,14 @@
       </tr>
     </table>
     <table class="table2">
-      <tr>
-        <td>
-            <iframe class="video" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-        </td>
-        <td>
-            <iframe class="video"src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-        </td>
-        <td>
-            <iframe class="video"src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-        </td>
-        <td>
-            <iframe class="video"src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-        </td>
-      </tr>
-      <tr>
-          <td>
-              <iframe class="video" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-          </td>
-          <td>
-              <iframe class="video"src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-          </td>
-          <td>
-              <iframe class="video"src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-          </td>
-          <td>
-              <iframe class="video"src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-          </td>
+        <tr >
+            <td *ngFor="let a of videos">
+                
+                <iframe class="video" [src] ="serialiseURL(a.url)"></iframe>
+                <p>{{a.titre}}</p>
+            </td>
         </tr>
+    
     </table>
      
     

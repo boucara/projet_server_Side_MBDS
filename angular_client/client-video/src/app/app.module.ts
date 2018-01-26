@@ -7,7 +7,6 @@ import {VideoService} from'./video.service'
 import { HttpModule } from '@angular/http';
 
 
-
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +16,7 @@ import { HttpModule } from '@angular/http';
     HttpClientModule,
     HttpModule
   ],
-  providers: [VideoService],
+  providers: [VideoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
