@@ -61,7 +61,21 @@ table2 {
     border-spacing:1Opx;  /* Nombre de pixels d'espace horizontal (5px), vertical (8px) */
 }
 .video{
-    width:300px; 
+    width:400px; 
     height:200px;
+}
+.mydiv {
+    width: 100%;
+    border:1px solid #000000;
+    background-color: #FFF0F5;
+}
+.mydiv div{
+display: inline-block;
+width: 400px;
+min-height: 200px;
+vertical-align: top ;
+zoom: 1;
+margin: 20px;
+padding: 0;
 }
 

@@ -18,17 +18,13 @@
         <td><a href="http://www.mbds-fr.org/"><img class="logo-mbds" src="./assets/images/logo-mbds.jpg"></a></td>
       </tr>
     </table>
-    <table class="table2">
-        <tr >
-            <td *ngFor="let a of videos">
-                
-                <iframe class="video" [src] ="serialiseURL(a.url)"></iframe>
-                <p>{{a.titre}}</p>
-            </td>
-        </tr>
-    
-    </table>
-     
+    <div class = "mydiv">
+     <div *ngFor="let a of videos">
+        <iframe  class="video" [src] ="serialiseURL(a.url)"></iframe>
+        <p>{{a.titre}}</p>
+     </div>
+    </div>
+   
     
     </div>
   </body>
