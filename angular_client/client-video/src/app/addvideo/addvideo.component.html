@@ -1,15 +1,16 @@
 <div class="contenu">
     <form >
       <label for="titre">Titre</label>
-      <input type="text" id="titre" name="titre" placeholder="Le titre de votre vidéo...">
+      <input type="text" id="titre" name="titre" placeholder="Le titre de votre vidéo..."
+      required  [(ngModel)]="titre">
   
       <label for="description">Description</label>
-      <textarea  name="usrtxt" class="describe">
+      <textarea  name="usrtxt" class="describe"  required  [(ngModel)]="description">
          
         </textarea>
   
       <label for="url"> URL</label>
-      <input type="text" id="url" name="titre" placeholder="L'URL de votre vidéo...">
-    <input type="submit" value="Ajouter">
+      <input type="text" id="url" name="titre" placeholder="L'URL de votre vidéo..." [(ngModel)]="url">
+    <input type="submit" value="Ajouter" (click)="newVideo()">
     </form>
   </div>

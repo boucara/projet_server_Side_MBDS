@@ -15,5 +15,10 @@ export class VideoService {
     return this.http.get(this.url).map((response: Response) => response.json());
 
    }
+   private url2 ='/api/videos';
+   postVideos(formdata:Object){
+    //this.url2=this.url2+"?titre="+titre+"&description="+description+"&url="+url ;
+    return this.http.post(this.url2,formdata).map((response: Response) => response.json());
+   }
   
 }
