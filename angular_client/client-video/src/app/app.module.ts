@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import {VideoService} from'./video.service'
+import { HttpModule } from '@angular/http';
 
 
 
@@ -13,7 +14,8 @@ import {VideoService} from'./video.service'
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   providers: [VideoService],
   bootstrap: [AppComponent]
