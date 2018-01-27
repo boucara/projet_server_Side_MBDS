@@ -99,7 +99,22 @@ app.post('/api/videos', function(req, res) {
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '../', 'angular_client/client-video/dist/', 'index.html'));
 });
+// ajoute vidéo en base de données
 
+app.post('/api/video',function(req, res) {
+    var titre=req.titre;
+    var description = req.description;
+    var url = req.url;
+    var formData={titre:titre, description:description, url:url};
+    mongoDBModule.createVideo(formData, function(data) {
+        console.log(data.JSON);
+        var objdData = {
+            msg:"vidéo bien crée",
+            data: data
+        }
+        res.send(JSON.stringify(data));
+    });
+});
 // Lance le serveur avec express
 server.listen(port);
 
