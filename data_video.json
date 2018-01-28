@@ -1,47 +1,56 @@
 [
-{
-  "url": "https://www.youtube.com/embed/tgbNymZ7vqY",
-  "description": "video",
-  "titre": "Rhiab Benhamouda"
-},
-{
-"url": "https://www.youtube.com/embed/MsM8SQ-Zyik",
-"description": "video",
-"titre": "Idani Marth"
-},
-{
-"url": "https://www.youtube.com/embed/F9Bo89m2f6g",
-"description": "video",
-"titre": "Tom Phily"
-},
-{
-  "url": "https://www.youtube.com/embed/HdBeR8QFKKg",
-  "description": "video",
-  "titre": "Aichatou Traoré"
+  {
+    "url": "https://www.youtube.com/embed/tgbNymZ7vqY",
+    "urlimg":"https://www.w3schools.com/howto/img_fjords.jpg",
+    "description": "video",
+    "titre": "Rhiab Benhamouda"
+  },
+  {
+    "url": "https://www.youtube.com/embed/MsM8SQ-Zyik",
+    "urlimg":"https://www.w3schools.com/howto/img_fjords.jpg",
+    "description": "video",
+    "titre": "Idani Marth"
+  },
+  {
+    "url": "https://www.youtube.com/embed/F9Bo89m2f6g",
+    "urlimg":"https://www.w3schools.com/howto/img_fjords.jpg",
+    "description": "video",
+    "titre": "Tom Phily"
+  },
+  {
+    "url": "https://www.youtube.com/embed/HdBeR8QFKKg",
+    "urlimg":"https://www.w3schools.com/howto/img_fjords.jpg",
+    "description": "video",
+    "titre": "Aichatou Traoré"
   },
   {
     "url": "https://www.youtube.com/embed/tt2k8PGm-TI",
+    "urlimg":"https://www.w3schools.com/howto/img_fjords.jpg",
     "description": "video",
     "titre": "Aichatou Traoré"
-    },
-    {
-      "url": "https://www.youtube.com/embed/TyHvyGVs42U",
-      "description": "video",
-      "titre": "Aichatou Traoré"
-      },
-      {
-        "url": "https://www.youtube.com/embed/tVKaN_H35xs",
-        "description": "video",
-        "titre": "Aichatou Traoré"
-        },
-        {
-          "url": "https://www.youtube.com/embed/z_4EIsrAuuA",
-          "description": "video",
-          "titre": "Aichatou Traoré"
-          },
-          {
-            "url": "https://www.youtube.com/embed/unMKWPOdnJQ",
-            "description": "video",
-            "titre": "Aichatou Traoré"
-            }
+  },
+  {
+    "url": "https://www.youtube.com/embed/TyHvyGVs42U",
+    "urlimg":"https://www.w3schools.com/howto/img_fjords.jpg",
+    "description": "video",
+    "titre": "Aichatou Traoré"
+  },
+  {
+    "url": "https://www.youtube.com/embed/tVKaN_H35xs",
+    "urlimg":"https://www.w3schools.com/howto/img_fjords.jpg",
+    "description": "video",
+    "titre": "Aichatou Traoré"
+  },
+  {
+    "url": "https://www.youtube.com/embed/z_4EIsrAuuA",
+    "urlimg":"https://www.w3schools.com/howto/img_fjords.jpg",
+    "description": "video",
+    "titre": "Aichatou Traoré"
+  },
+  {
+    "url": "https://www.youtube.com/embed/unMKWPOdnJQ",
+    "urlimg":"https://www.w3schools.com/howto/img_fjords.jpg",
+    "description": "video",
+    "titre": "Aichatou Traoré"
+  }
 ]
