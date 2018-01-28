@@ -29,7 +29,17 @@ export class AccueilComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
   pageSuivante(){
-    this.videoService.getVideos().subscribe(response =>{
+    this.videoService.getVideosPage().subscribe(response =>{
+      this.videos=response.data ;
+
+      console.log(this.videos);
+      });
+     
+    
+
+  }
+  pageAvant(){
+    this.videoService.getVideosPagePrevious().subscribe(response =>{
       this.videos=response.data ;
 
       console.log(this.videos);

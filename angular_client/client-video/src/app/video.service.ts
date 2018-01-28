@@ -13,12 +13,13 @@ export class VideoService {
  
   
   private pageNext=0;
-   private url ='/api/videos?pagesize='+6;
+    private  url ='/api/videos?pagesize='+6;
    getVideos(){
+     
     console.log(this.url);
     console.log(this.pageNext);
-    this.url=this.url+'&page='+this.pageNext;
-    this.pageNext++;
+    // this.url=this.url+'&page='+this.pageNext;
+    // this.pageNext++;
     return this.http.get(this.url).map((response: Response) => response.json());
   
 
@@ -28,5 +29,28 @@ export class VideoService {
     //this.url2=this.url2+"?titre="+titre+"&description="+description+"&url="+url ;
     return this.http.post(this.url2,formdata).map((response: Response) => response.json());
    }
+   getVideosPage(){
+     this.pageNext=this.pageNext+1;
+    var url ='/api/videos?pagesize='+6+'&page='+this.pageNext;
+    console.log(url);
+    console.log(this.pageNext);
+    // this.url=this.url+'&page='+this.pageNext;
+    // this.pageNext++;
+    return this.http.get(url).map((response: Response) => response.json());
+  
+   }
+   getVideosPagePrevious(){
+     if(this.pageNext>0){
+      this.pageNext=this.pageNext-1;
+     }
+    
+   var url ='/api/videos?pagesize='+6+'&page='+this.pageNext;
+   console.log(url);
+   console.log(this.pageNext);
+   // this.url=this.url+'&page='+this.pageNext;
+   // this.pageNext++;
+   return this.http.get(url).map((response: Response) => response.json());
+ 
+  }
   
 }
