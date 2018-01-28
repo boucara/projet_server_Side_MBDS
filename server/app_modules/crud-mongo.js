@@ -85,6 +85,7 @@ exports.updateVideo = function(body, callback) {
         }
     });
 };
+
 exports.findVideos = function(page, pagesize, callback) {
     MongoClient.connect(url, function(err, db) {
         console.log("pagesize = " + pagesize);
@@ -110,7 +111,8 @@ exports.createVideo = function(formData, callback) {
 			let toInsert = {
 				url : formData.url, 
                 description : formData.description,
-                titre:formData.titre
+                titre:formData.titre,
+                urlimg:formData.urlimg
 			};
 			console.dir(JSON.stringify(toInsert));
 		    db.collection("videos")

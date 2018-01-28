@@ -9,19 +9,21 @@ import { HttpModule } from '@angular/http';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AddvideoComponent } from './addvideo/addvideo.component';
 import { RouterModule, Routes } from '@angular/router';
+import { EditvideoComponent } from './editvideo/editvideo.component';
 
 const appRoutes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'addvideo', component: AddvideoComponent },
- 
-  
+  { path: 'editvideo/:id', component: EditvideoComponent}
+
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
-    AddvideoComponent
+    AddvideoComponent,
+    EditvideoComponent
   ],
   imports: [
     BrowserModule,
