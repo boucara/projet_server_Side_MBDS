@@ -15,12 +15,12 @@ exports.checkURL = function(params, callback) {
     MongoClient.connect(url, function(err, db) {
         if(!err) {
             // La requete mongoDB
-            var myquery = { "url": params.url};
             db.collection("videos")
-                .findOne(myquery, function(err, data) {
+                .find(params).toArray(function(err, data) {
                     var reponse;
 
                     if(!err){
+                        console.log(data);
                         var result = data?false:true;
                         reponse = {
                             succes: true,
@@ -37,6 +37,7 @@ exports.checkURL = function(params, callback) {
                         };
                     }
                     callback(reponse);
+                    db.close();
                 });
         } else {
             var reponse = reponse = {

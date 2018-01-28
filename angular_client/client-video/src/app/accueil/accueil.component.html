@@ -2,6 +2,7 @@
     <div *ngFor="let a of videos">
        <iframe  class="video" [src] ="serialiseURL(a.url)"></iframe>
        <p>{{a.titre}}</p>
+      <button>Modifier</button>   <i class="fa fa-close"></i>
     </div>
    </div>
    <button (click)="pageSuivante()">NEXT</button>
