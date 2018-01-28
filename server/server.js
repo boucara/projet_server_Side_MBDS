@@ -83,7 +83,7 @@ app.put('/api/video', function (req, res) {
 // Check si l'url est déjà utilisé
 // rend true si l'url est pas déjà stoké
 app.get('/api/checkurl', function (req, res) {
-    mongoDBModule.checkURL(req.params, function (response) {
+    mongoDBModule.checkURL(req.query, function (response) {
         res.send(JSON.stringify(response));
     });
 });
