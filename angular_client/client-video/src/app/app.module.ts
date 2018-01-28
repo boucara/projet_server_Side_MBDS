@@ -10,11 +10,13 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AddvideoComponent } from './addvideo/addvideo.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EditvideoComponent } from './editvideo/editvideo.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 const appRoutes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'addvideo', component: AddvideoComponent },
-  { path: 'editvideo/:id', component: EditvideoComponent}
+  { path: 'editvideo/:id', component: EditvideoComponent},
+  { path: '**', component:NotfoundComponent}
 
 ]
 
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
     AppComponent,
     AccueilComponent,
     AddvideoComponent,
-    EditvideoComponent
+    EditvideoComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
