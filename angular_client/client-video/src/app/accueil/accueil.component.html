@@ -1,6 +1,6 @@
 <div class = "mydiv">
     <div *ngFor="let a of videos">
-      <a (click)="lecture()"> <iframe  class="video" [src] ="serialiseURL(a.url)"></iframe></a>
+      <img  class="video" routerLink="/addvideo" [src] ="a.urlimg"/>
        <p>{{a.titre}}</p>
       <button>Modifier</button>   <i class="fa fa-close"></i>
     </div>
