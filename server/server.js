@@ -62,7 +62,7 @@ app.get('/api/videos', function(req, res) {
     // idem si present on prend la valeur, sinon 10
     var pagesize = parseInt(req.query.pagesize || 10);
      mongoDBModule.findVideos(page, pagesize,  function(data) {
-         console.log(data.JSON);
+         //console.log(data.JSON);
         var objdData = {
             msg:"la liste des videos avec succes",
             data: data
@@ -89,25 +89,19 @@ app.put('/api/checkurl', function (req, res) {
 });
 
 // ajoute une nouvelle vidéo en base de données
-app.post('/api/videos', function(req, res) {
+/*app.post('/api/videos', function(req, res) {
     mongoDBModule.createVideo(req.body, function(data) {
         res.send(JSON.stringify(data));
     });
-});
-
-// Retourne l'index de l'application cliente
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, '../', 'angular_client/client-video/dist/', 'index.html'));
-});
-// ajoute vidéo en base de données
-
-app.post('/api/video',function(req, res) {
+});*/
+app.post('/api/uneVideo ',function(req, res) {
     var titre=req.titre;
     var description = req.description;
     var url = req.url;
     var formData={titre:titre, description:description, url:url};
     mongoDBModule.createVideo(formData, function(data) {
-        console.log(data.JSON);
+        //console.log(data.JSON);
+        console.log(req.titre , req.description,req.url);
         var objdData = {
             msg:"vidéo bien crée",
             data: data
@@ -115,7 +109,14 @@ app.post('/api/video',function(req, res) {
         res.send(JSON.stringify(data));
     });
 });
+// Retourne l'index de l'application cliente
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../', 'angular_client/client-video/dist/', 'index.html'));
+});
+// ajoute vidéo en base de données
+
+
 // Lance le serveur avec express
 server.listen(port);
 
-console.log("Serveur lancÃ© sur le port : " + port);
+console.log("Serveur lancé sur le port : " + port);

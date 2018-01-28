@@ -10,9 +10,17 @@ export class VideoService {
   constructor(private http:Http) {
     
   }
-   private url ='/api/videos'
+ 
+  
+  private pageNext=0;
+   private url ='/api/videos?pagesize='+6;
    getVideos(){
+    console.log(this.url);
+    console.log(this.pageNext);
+    this.url=this.url+'&page='+this.pageNext;
+    this.pageNext++;
     return this.http.get(this.url).map((response: Response) => response.json());
+  
 
    }
    private url2 ='/api/videos';

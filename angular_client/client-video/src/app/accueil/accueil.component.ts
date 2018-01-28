@@ -12,7 +12,10 @@ export class AccueilComponent implements OnInit {
   videos:String[];
   data:object;
   tabdata = new Array();
-  constructor(private http: Http , private videoService:VideoService, private sanitizer: DomSanitizer) { }
+  numpage=0;
+  constructor(private http: Http , private videoService:VideoService, private sanitizer: DomSanitizer) {
+  
+   }
 
   ngOnInit() {
     this.videoService.getVideos().subscribe(response =>{
@@ -25,5 +28,14 @@ export class AccueilComponent implements OnInit {
   serialiseURL(url:string): SafeUrl{
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+  pageSuivante(){
+    this.videoService.getVideos().subscribe(response =>{
+      this.videos=response.data ;
 
+      console.log(this.videos);
+      });
+     
+    
+
+  }
 }
