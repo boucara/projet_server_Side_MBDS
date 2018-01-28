@@ -7,6 +7,9 @@ const server   = require('http').Server(app);
 const mongoDBModule = require('./app_modules/crud-mongo');
 // Pour les formulaires standards
 const bodyParser = require('body-parser');
+// pour les formulaires multiparts
+var multer = require('multer');
+var multerData = multer();
 
 // Cette ligne indique le répertoire qui contient
 // les fichiers statiques: html, css, js, images etc.
@@ -17,11 +20,12 @@ app.use(express.static(path.join(__dirname, '../', 'angular_client/client-video/
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.use(function (req, res, next) {
-//      res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//      next();
-//  });
+app.use(function (req, res, next) {
+     res.header("Access-Control-Allow-Origin", "*");
+     res.header("Access-Control-Allow-Methods","POST,DELETE,PUT,GET")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+     next();
+ });
 
 //------------------
 // ROUTES
@@ -93,22 +97,30 @@ app.get('/api/checkurl', function (req, res) {
     mongoDBModule.createVideo(req.body, function(data) {
         res.send(JSON.stringify(data));
     });
-});*/
-app.post('/api/uneVideo ',function(req, res) {
-    var titre=req.titre;
-    var description = req.description;
-    var url = req.url;
-    var formData={titre:titre, description:description, url:url};
-    mongoDBModule.createVideo(formData, function(data) {
-        //console.log(data.JSON);
-        console.log(req.titre , req.description,req.url);
-        var objdData = {
-            msg:"vidéo bien crée",
-            data: data
-        }
-        res.send(JSON.stringify(data));
+});*/app.post('/api/videos', multerData.fields([]), function(req, res) {
+    console.log("tedi");
+ 	mongoDBModule.createVideo(req.body, function(data) {
+        
+        res.send(JSON.stringify(data)); 
     });
 });
+
+// app.post('/api/uneVideo ',function(req, res) {
+//     console.log("je suis la");
+//     var titre=req.titre;
+//     var description = req.description;
+//     var url = req.url;
+//     var formData={titre:titre, description:description, url:url};
+//     mongoDBModule.createVideo(formData, function(data) {
+//         //console.log(data.JSON);
+//         console.log(req.titre , req.description,req.url);
+//         var objdData = {
+//             msg:"vidéo bien crée",
+//             data: data
+//         }
+//         res.send(JSON.stringify(data));
+//     });
+// });
 // Retourne l'index de l'application cliente
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '../', 'angular_client/client-video/dist/', 'index.html'));

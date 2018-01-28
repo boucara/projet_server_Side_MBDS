@@ -44,8 +44,11 @@ export class AccueilComponent implements OnInit {
 
       console.log(this.videos);
       });
-     
+    
     
 
+  }
+  lecture(){
+    console.log("super");
   }
 }

@@ -20,8 +20,8 @@ export class AddvideoComponent implements OnInit {
   }
   newVideo(){
   this.ob={titre:this.titre ,description:this.description ,url:this.url};
-  console.log(this.ob);
-  this.videoService.postVideos(this.ob);
+  this.videoService.postVideos(this.ob).subscribe(response=> console.log(response.data));
+ alert("ajout réussi");
     
   }
 }
