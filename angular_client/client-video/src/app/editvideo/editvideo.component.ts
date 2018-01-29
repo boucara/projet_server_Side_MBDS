@@ -32,5 +32,5 @@ export class EditvideoComponent implements OnInit {
 
 
   }
-
+  
 }
