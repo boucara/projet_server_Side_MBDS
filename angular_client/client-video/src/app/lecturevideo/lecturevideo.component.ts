@@ -12,12 +12,11 @@ export class LecturevideoComponent implements OnInit {
  id: string;
  description:string;
  url: string;
+ titre:string;
  constructor(private route: ActivatedRoute , private videoService:VideoService,private sanitizer: DomSanitizer) { 
   
 
   }
-  
-
   ngOnInit() {
     this.route.params.subscribe(params => {
     console.log(params);
@@ -26,6 +25,7 @@ export class LecturevideoComponent implements OnInit {
       console.log(response);
        this.url = response.url;
       this.description = response.description;
+      this.titre=response.titre;
     });
 
   });
