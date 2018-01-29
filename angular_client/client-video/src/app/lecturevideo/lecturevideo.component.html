@@ -1,6 +1,13 @@
 <div>
   <div>
       <h1>{{titre}}</h1><br>
+      <div class="rating"><!--
+      --><a [ngStyle]="{color:  mycouleur1 }" (click)="vote1()" title="Donner 5 étoiles">☆</a><!--
+      --><a [ngStyle]="{color:  mycouleur2 }"(click)="vote2()"title="Donner 4 étoiles">☆</a><!--
+      --><a [ngStyle]="{color:  mycouleur3 }" (click)="vote3()" title="Donner 3 étoiles">☆</a><!--
+      --><a [ngStyle]="{color:  mycouleur4 }"(click)="vote4()"title="Donner 2 étoiles">☆</a><!--
+      --><a [ngStyle]="{color:  mycouleur5 }"(click)="vote5()" title="Donner 1 étoile">☆</a>
+   </div>
     <iframe class="video" [src] ="serialiseURL(url)"></iframe>
     <p>{{description}}</p>
     
