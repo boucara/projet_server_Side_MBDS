@@ -112,6 +112,13 @@ app.get('/api/:id/video',function(req, res) {
     });
 });
 
+//Retourne la video dont l'id en param
+app.delete('/api/video/:id',function(req, res) {
+    mongoDBModule.deleteVideo(req.params, function(data) {
+        res.send(JSON.stringify(data));
+    });
+});
+
 // Retourne l'index de l'application cliente
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '../', 'angular_client/client-video/dist/', 'index.html'));

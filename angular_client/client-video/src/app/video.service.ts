@@ -13,9 +13,9 @@ export class VideoService {
 
 
   private pageNext=0;
-  private  url ='/api/videos?pagesize='+6;
   getVideos(){
-    return this.http.get(this.url).map((response: Response) => response.json());
+    let url ='/api/videos?pagesize='+6+'&page='+this.pageNext;
+    return this.http.get(url).map((response: Response) => response.json());
   }
   private url2 ='/api/videos';
   postVideos(formdata:any){
@@ -56,5 +56,10 @@ export class VideoService {
   checkURL(url){
     var url2 = '/api/checkurl/?url='+url;
     return this.http.get(url2).map((response:Response)=>response.json());
+  }
+
+  deleteVideo(id){
+    var url = '/api/video/'+id;
+    return this.http.delete(url).map((response:Response)=>response.json());
   }
 }

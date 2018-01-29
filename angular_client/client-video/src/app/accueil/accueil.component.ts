@@ -14,7 +14,7 @@ export class AccueilComponent implements OnInit {
   tabdata = new Array();
   numpage=0;
   constructor(private http: Http , private videoService:VideoService, private sanitizer: DomSanitizer) {
-  
+
    }
 
   ngOnInit() {
@@ -23,31 +23,37 @@ export class AccueilComponent implements OnInit {
 
       console.log(this.videos);
       });
-
   }
+
   serialiseURL(url:string): SafeUrl{
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
   pageSuivante(){
     this.videoService.getVideosPage().subscribe(response =>{
       this.videos=response.data ;
 
       console.log(this.videos);
       });
-     
-    
-
   }
+
   pageAvant(){
     this.videoService.getVideosPagePrevious().subscribe(response =>{
       this.videos=response.data ;
 
       console.log(this.videos);
       });
-    
-    
-
   }
+
+  deleteVideo(id){
+    this.videoService.deleteVideo(id).subscribe(response0 =>{
+      alert("supression réussie");
+      this.videoService.getVideos().subscribe(response =>{
+        this.videos=response.data ;
+      });
+    });
+  }
+
   lecture(){
     console.log("super");
   }

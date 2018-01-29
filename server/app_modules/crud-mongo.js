@@ -161,3 +161,38 @@ exports.findVideo = function(params, callback) {
         }
     });
 };
+
+exports.deleteVideo = function(params, callback) {
+    MongoClient.connect(url, function(err, db) {
+        if(!err) {
+            let myquery = { "_id": ObjectId(params.id)};
+            let reponse;
+            db.collection("videos")
+                .deleteOne(myquery, function(err, result) {
+                    if(!err){
+                        reponse = {
+                            succes : true,
+                            result: result,
+                            error : null,
+                            msg: "Suppression réussie " + result
+                        };
+                    } else {
+                        console.log("supression resussi");
+                        reponse = {
+                            succes : false,
+                            error : err,
+                            msg: "Problème à  la suppression"
+                        };
+                    }
+                    callback(reponse);
+                });
+        } else{
+            let reponse = reponse = {
+                succes: false,
+                error : err,
+                msg:"Problème lors de la suppression, erreur de connexion."
+            };
+            callback(reponse);
+        }
+    });
+};
