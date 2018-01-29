@@ -50,5 +50,5 @@ export class EditvideoComponent implements OnInit {
   emptyorblank(s){
     return (0 === s.length) || (s.trim().length === 0);
   }
-
+  
 }
