@@ -2,6 +2,7 @@
     <div *ngFor="let a of videos">
       <img  class="video"[routerLink]="['/play', a._id]" [src] ="a.urlimg"/>
        <p>{{a.titre}}</p>
+       
       <button [routerLink]="['/editvideo', a._id]">Modifier</button>   <i class="fa fa-close"></i>
     </div>
    </div>

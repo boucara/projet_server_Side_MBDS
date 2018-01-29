@@ -16,9 +16,9 @@ zoom: 1;
 margin: 20px;
 padding: 0;
 }
-
-    .next:after {
+.next:after {
         content: "\279C"; 
        
         }
-    
+
+ 

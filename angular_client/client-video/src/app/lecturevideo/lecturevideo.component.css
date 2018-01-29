@@ -2,3 +2,19 @@
     width:70%; 
     height:500px;
 }
+.rating {
+    direction: rtl;
+ }
+ .rating a {
+    color: #AEEE00;
+    text-decoration: none;
+    font-size: 2em;
+    transition: color .4s;
+ }
+ .rating a:hover,
+ .rating a:focus,
+ .rating a:hover ~ a,
+ .rating a:focus ~ a {
+    color: orange;
+    
+ }
