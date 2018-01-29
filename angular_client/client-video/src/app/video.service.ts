@@ -13,39 +13,48 @@ export class VideoService {
 
 
   private pageNext=0;
-    private  url ='/api/videos?pagesize='+6;
-   getVideos(){
-     return this.http.get(this.url).map((response: Response) => response.json());
+  private  url ='/api/videos?pagesize='+6;
+  getVideos(){
+    return this.http.get(this.url).map((response: Response) => response.json());
   }
-   private url2 ='/api/videos';
-   postVideos(formdata:any){
+  private url2 ='/api/videos';
+  postVideos(formdata:any){
     return this.http.post(this.url2,formdata).map((response: Response) => response.json());
-   }
-   getVideosPage(){
-     this.pageNext=this.pageNext+1;
+  }
+  getVideosPage(){
+    this.pageNext=this.pageNext+1;
     var url ='/api/videos?pagesize='+6+'&page='+this.pageNext;
     console.log(url);
     console.log(this.pageNext);
 
     return this.http.get(url).map((response: Response) => response.json());
 
-   }
-   getVideosPagePrevious(){
-     if(this.pageNext>0){
+  }
+  getVideosPagePrevious(){
+    if(this.pageNext>0){
       this.pageNext=this.pageNext-1;
-     }
+    }
 
-   var url ='/api/videos?pagesize='+6+'&page='+this.pageNext;
-   console.log(url);
-   console.log(this.pageNext);
+    var url ='/api/videos?pagesize='+6+'&page='+this.pageNext;
+    console.log(url);
+    console.log(this.pageNext);
 
-   return this.http.get(url).map((response: Response) => response.json());
+    return this.http.get(url).map((response: Response) => response.json());
 
+  }
+
+  putVideo(formdata:any){
+    var url = '/api/video';
+    return this.http.put(url,formdata).map((response: Response) => response.json());
   }
 
   getVideo(id){
-     var url = '/api/'+id+'/video';
-     return this.http.get(url).map((response :Response) => response.json());
+    var url = '/api/'+id+'/video';
+    return this.http.get(url).map((response :Response) => response.json());
   }
 
+  checkURL(url){
+    var url2 = '/api/checkurl/?url='+url;
+    return this.http.get(url2).map((response:Response)=>response.json());
+  }
 }
