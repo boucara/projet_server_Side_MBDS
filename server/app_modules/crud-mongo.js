@@ -20,8 +20,7 @@ exports.checkURL = function(params, callback) {
                     var reponse;
 
                     if(!err){
-                        console.log(data);
-                        var result = data?false:true;
+                        var result = data.length>0?true:false;
                         reponse = {
                             succes: true,
                             result : result,
@@ -55,8 +54,10 @@ exports.updateVideo = function(body, callback) {
         if(!err) {
             var myquery = { "_id": ObjectId(body.id)};
             var newvalues = {
-                name : body.description,
-                cuisine : body.legende
+                description : body.description,
+                titre : body.titre,
+                urlimg : body.urlimg,
+                url : body.url
             };
             db.collection("videos")
                 .updateOne(myquery, newvalues, function(err, result) {

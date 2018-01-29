@@ -1,20 +1,20 @@
 <div class="contenu">
-  <form >
+  <form #f="ngForm" (ngSubmit)="editVideo(f)">
     <label for="titre">Titre</label>
-    <input type="text" id="titre" name="titre" placeholder="Le titre de votre vidéo..."
+    <input type="text" id="titre" name="titre" ngModel placeholder="Le titre de votre vidéo..."
            required  [(ngModel)]="titre">
 
     <label for="description">Description</label>
-    <textarea  name="description" class="describe"  required  [(ngModel)]="description">
+    <textarea ngModel name="description" class="describe"  required  [(ngModel)]="description">
 
         </textarea>
 
     <label for="url"> URL</label>
-    <input type="text" required disabled id="url" name="url" placeholder="L'URL de votre vidéo..." [(ngModel)]="url">
+    <input type="text" ngModel required disabled id="url" name="url" placeholder="L'URL de votre vidéo..." [(ngModel)]="url">
 
-    <label for="url"> URL Image</label>
-    <input type="text" required id="urlimg" name="urlimg" placeholder="L'URL de l'image de votre video..." [(ngModel)]="urlimg">
+    <label for="urlimg"> URL Image</label>
+    <input type="text" ngModel required id="urlimg" name="urlimg" placeholder="L'URL de l'image de votre video..." [(ngModel)]="urlimg">
 
-    <input type="submit" value="Modifier" (click)="editVideo()">
+    <input type="submit" value="Modifier" />
   </form>
 </div>

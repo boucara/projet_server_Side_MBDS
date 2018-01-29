@@ -20,7 +20,7 @@ export class EditvideoComponent implements OnInit {
     this.route.params.subscribe(params => {
       console.log(params);
       this.id = params['id'];
-      this.videoService.getVideo(this.id).subscribe(response=> {
+      this.videoService.getVideo(this.id).subscribe(response => {
         console.log(response);
         this.titre = response.titre;
         this.url = response.url;
@@ -29,8 +29,26 @@ export class EditvideoComponent implements OnInit {
       });
 
     });
+  }
 
+  editVideo(){
+    if(this.controlInputs()){
+      let ob={id:this.id, titre:this.titre ,description:this.description ,url:this.url, urlimg:this.urlimg};
+      this.videoService.putVideo(ob).subscribe(response=> console.log(response.data));
+      alert("modification réussi");
+    }
+    else{
+      alert("les champs n'accèptent pas de valeurs null");
+    }
 
+  }
+
+  controlInputs(){
+    return !this.emptyorblank(this.titre) && !this.emptyorblank(this.description) && !this.emptyorblank(this.urlimg);
+  }
+
+  emptyorblank(s){
+    return (0 === s.length) || (s.trim().length === 0);
   }
   
 }
