@@ -8,10 +8,10 @@ import 'rxjs/add/operator/map';
 export class VideoService {
 
   constructor(private http:Http) {
-    
+
   }
- 
-  
+
+
   private pageNext=0;
     private  url ='/api/videos?pagesize='+6;
    getVideos(){
@@ -26,21 +26,26 @@ export class VideoService {
     var url ='/api/videos?pagesize='+6+'&page='+this.pageNext;
     console.log(url);
     console.log(this.pageNext);
-    
+
     return this.http.get(url).map((response: Response) => response.json());
-  
+
    }
    getVideosPagePrevious(){
      if(this.pageNext>0){
       this.pageNext=this.pageNext-1;
      }
-    
+
    var url ='/api/videos?pagesize='+6+'&page='+this.pageNext;
    console.log(url);
    console.log(this.pageNext);
 
    return this.http.get(url).map((response: Response) => response.json());
- 
+
   }
-  
+
+  getVideo(id){
+     var url = '/api/'+id+'/video';
+     return this.http.get(url).map((response :Response) => response.json());
+  }
+
 }

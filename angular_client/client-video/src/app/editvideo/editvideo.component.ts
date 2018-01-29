@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {VideoService} from "../video.service";
 
 @Component({
   selector: 'app-editvideo',
@@ -12,17 +13,24 @@ export class EditvideoComponent implements OnInit {
   description:string;
   url: string ;
   urlimg: string;
-  ob:object;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute , private videoService:VideoService) { }
 
   ngOnInit() {
-    this.ob = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       console.log(params);
       this.id = params['id'];
+      this.videoService.getVideo(this.id).subscribe(response=> {
+        console.log(response);
+        this.titre = response.titre;
+        this.url = response.url;
+        this.urlimg = response.urlimg;
+        this.description = response.description;
+      });
 
-      // In a real app: dispatch action to load the details here.
     });
+
+
   }
 
 }

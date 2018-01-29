@@ -86,8 +86,8 @@ app.put('/api/video', function (req, res) {
 
 // Check si l'url est déjà utilisé
 // rend true si l'url est pas déjà stoké
-app.get('/api/checkurl', function (req, res) {
-    mongoDBModule.checkURL(req.query, function (response) {
+app.get('/api/checkurl/:url', function (req, res) {
+    mongoDBModule.checkURL(req.params, function (response) {
         res.send(JSON.stringify(response));
     });
 });
@@ -105,22 +105,13 @@ app.get('/api/checkurl', function (req, res) {
     });
 });
 
-// app.post('/api/uneVideo ',function(req, res) {
-//     console.log("je suis la");
-//     var titre=req.titre;
-//     var description = req.description;
-//     var url = req.url;
-//     var formData={titre:titre, description:description, url:url};
-//     mongoDBModule.createVideo(formData, function(data) {
-//         //console.log(data.JSON);
-//         console.log(req.titre , req.description,req.url);
-//         var objdData = {
-//             msg:"vidéo bien crée",
-//             data: data
-//         }
-//         res.send(JSON.stringify(data));
-//     });
-// });
+//Retourne la video dont l'id en param
+app.get('/api/:id/video',function(req, res) {
+    mongoDBModule.findVideo(req.params, function(data) {
+        res.send(JSON.stringify(data));
+    });
+});
+
 // Retourne l'index de l'application cliente
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, '../', 'angular_client/client-video/dist/', 'index.html'));

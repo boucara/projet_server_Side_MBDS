@@ -53,7 +53,7 @@ exports.checkURL = function(params, callback) {
 exports.updateVideo = function(body, callback) {
     MongoClient.connect(url, function(err, db) {
         if(!err) {
-            var myquery = { "_id": ObjectId(id)};
+            var myquery = { "_id": ObjectId(body.id)};
             var newvalues = {
                 name : body.description,
                 cuisine : body.legende
@@ -144,4 +144,19 @@ exports.createVideo = function(formData, callback) {
             callback(reponse);
 		}
 	});
-}
+};
+
+exports.findVideo = function(params, callback) {
+    MongoClient.connect(url, function(err, db) {
+        var selection ={_id: ObjectId(params.id)};
+        if(!err){
+            db.collection('videos')
+                .find(selection)
+                .toArray()
+                .then(arr => callback(arr[0]));
+        }
+        else{
+            callback(-1);
+        }
+    });
+};
