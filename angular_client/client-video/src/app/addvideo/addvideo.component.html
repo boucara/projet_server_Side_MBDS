@@ -10,10 +10,10 @@
         </textarea>
 
     <label for="url"> URL</label>
-    <input type="text" required id="url"  name="url" placeholder="L'URL de votre vidéo..." [(ngModel)]="url">
+    <input type="text" required id="url"  name="url" placeholder="Exemple:https://www.youtube.com/embed/clé video" [(ngModel)]="url">
 
     <label for="urlimg"> URL IMAGE</label>
-    <input type="text" required id="urlimg" name="urlimg" placeholder="L'URL de l'image de votre video..." [(ngModel)]="urlimg">
+    <input type="text" required id="urlimg" name="urlimg" placeholder="Exemple:https://i.ytimg.com/vi/clé vidéo/default.jpg" [(ngModel)]="urlimg">
 
     <input type="submit" value="Ajouter" (click)="newVideo()">
   </form>
