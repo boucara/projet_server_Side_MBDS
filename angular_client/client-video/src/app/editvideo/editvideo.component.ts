@@ -13,6 +13,7 @@ export class EditvideoComponent implements OnInit {
   description:string;
   url: string ;
   urlimg: string;
+  vote:number;
 
   constructor(private route: ActivatedRoute , private videoService:VideoService) { }
 
@@ -26,6 +27,7 @@ export class EditvideoComponent implements OnInit {
         this.url = response.url;
         this.urlimg = response.urlimg;
         this.description = response.description;
+        this.vote=response.vote;
       });
 
     });
@@ -33,7 +35,7 @@ export class EditvideoComponent implements OnInit {
 
   editVideo(){
     if(this.controlInputs()){
-      let ob={id:this.id, titre:this.titre ,description:this.description ,url:this.url, urlimg:this.urlimg};
+      let ob={id:this.id, titre:this.titre ,description:this.description ,url:this.url, urlimg:this.urlimg,vote:this.vote};
       this.videoService.putVideo(ob).subscribe(response=> console.log(response.data));
       alert("modification réussi");
     }

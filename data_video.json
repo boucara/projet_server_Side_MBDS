@@ -3,54 +3,63 @@
     "url": "https://www.youtube.com/embed/tgbNymZ7vqY",
     "urlimg":"https://i.ytimg.com/vi/tgbNymZ7vqY/default.jpg",
     "description": "video",
-    "titre": "Rhiab Benhamouda"
+    "titre": "Rhiab Benhamouda",
+    "vote":0
   },
   {
     "url": "https://www.youtube.com/embed/MsM8SQ-Zyik",
     "urlimg":"https://i.ytimg.com/vi/MsM8SQ-Zyik/default.jpg",
     "description": "video",
-    "titre": "Idani Marth"
+    "titre": "Idani Marth",
+    "vote":0
   },
   {
     "url": "https://www.youtube.com/embed/F9Bo89m2f6g",
     "urlimg":"https://i.ytimg.com/vi/F9Bo89m2f6g/default.jpg",
     "description": "video",
-    "titre": "Tom Phily"
+    "titre": "Tom Phily",
+    "vote":0
   },
   {
     "url": "https://www.youtube.com/embed/HdBeR8QFKKg",
     "urlimg":"https://i.ytimg.com/vi/HdBeR8QFKKg/default.jpg",
     "description": "video",
-    "titre": "Aichatou Traoré"
+    "titre": "Aichatou Traoré",
+    "vote":0
   },
   {
     "url": "https://www.youtube.com/embed/tt2k8PGm-TI",
     "urlimg":"https://i.ytimg.com/vi/tt2k8PGm-TI/default.jpg",
     "description": "video",
-    "titre": "Aichatou Traoré"
+    "titre": "Aichatou Traoré",
+    "vote":0
   },
   {
     "url": "https://www.youtube.com/embed/TyHvyGVs42U",
     "urlimg":"https://i.ytimg.com/vi/TyHvyGVs42U/default.jpg",
     "description": "video",
-    "titre": "Aichatou Traoré"
+    "titre": "Aichatou Traoré",
+    "vote":0
   },
   {
     "url": "https://www.youtube.com/embed/tVKaN_H35xs",
     "urlimg":"https://i.ytimg.com/vi/tVKaN_H35xs/default.jpg",
     "description": "video",
-    "titre": "Aichatou Traoré"
+    "titre": "Aichatou Traoré",
+    "vote":0
   },
   {
     "url": "https://www.youtube.com/embed/z_4EIsrAuuA",
     "urlimg":"https://i.ytimg.com/vi/z_4EIsrAuuA/default.jpg",
     "description": "video",
-    "titre": "Aichatou Traoré"
+    "titre": "Aichatou Traoré",
+    "vote":0
   },
   {
     "url": "https://www.youtube.com/embed/unMKWPOdnJQ",
     "urlimg":"https://i.ytimg.com/vi/unMKWPOdnJQ/default.jpg",
     "description": "video",
-    "titre": "Aichatou Traoré"
+    "titre": "Aichatou Traoré",
+    "vote":0
   }
 ]

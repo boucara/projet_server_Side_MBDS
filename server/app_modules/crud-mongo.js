@@ -57,7 +57,8 @@ exports.updateVideo = function(body, callback) {
                 description : body.description,
                 titre : body.titre,
                 urlimg : body.urlimg,
-                url : body.url
+                url : body.url,
+                vote:body.vote
             };
             db.collection("videos")
                 .updateOne(myquery, newvalues, function(err, result) {
