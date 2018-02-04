@@ -22,7 +22,7 @@ Calcule du vote pour une vidéo:
     -Le troisiéme vaut 3 points
     -Le quatriéme vaut 4points
     -Le cinquiéme vaut 5points
-    -Le vote totale = Somme des points des étoiles voter/5 + l'ancien vote de la vidéo dans la base de donner 
+    -Le vote totale = Somme des points des étoiles voter/5 + l'ancien vote de la vidéo dans la base de données
     
     
 Cahier des charges:
