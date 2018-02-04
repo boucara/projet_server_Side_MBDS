@@ -81,8 +81,6 @@ export class LecturevideoComponent implements OnInit {
    
   voteTotal():number{
     var voteTotal = (this.etoile1+this.etoile2+this.etoile3+this.etoile4+this.etoile5)/5 ;
-    console.log("mes notes"+this.etoile1, this.etoile2, this.etoile3, this.etoile4, this.etoile5);
-    console.log("moyenne"+voteTotal);
    return voteTotal;
 
     
@@ -90,7 +88,7 @@ export class LecturevideoComponent implements OnInit {
    envoieVote(){
     this.vote=this.voteTotal()+this.vote;
     let ob={id:this.id, titre:this.titre ,description:this.description ,url:this.url, urlimg:this.urlimg,vote:this.vote};
-    this.videoService.putVideo(ob).subscribe(response=> console.log("donner vote"+response.data));
+    this.videoService.putVideo(ob).subscribe(response=> response.data);
     alert("vote réussi");
     
 

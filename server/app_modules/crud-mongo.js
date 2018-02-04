@@ -114,7 +114,8 @@ exports.createVideo = function(formData, callback) {
 				url : formData.url, 
                 description : formData.description,
                 titre:formData.titre,
-                urlimg:formData.urlimg
+                urlimg:formData.urlimg,
+                vote:formData.vote
 			};
 			console.dir(JSON.stringify(toInsert));
 		    db.collection("videos")

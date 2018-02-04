@@ -12,6 +12,7 @@ export class AddvideoComponent implements OnInit {
  description:string;
  url: string ;
  urlimg: string;
+ vote:number=0;
  ob:object;
   constructor(private http: Http , private videoService:VideoService) {
 
@@ -30,7 +31,7 @@ export class AddvideoComponent implements OnInit {
   checkURL(){
     this.videoService.checkURL(this.url).subscribe(response=> {
       if(!response.result){
-        this.ob={titre:this.titre ,description:this.description ,url:this.url, urlimg:this.urlimg};
+        this.ob={titre:this.titre ,description:this.description ,url:this.url, urlimg:this.urlimg,vote:this.vote};
         this.videoService.postVideos(this.ob).subscribe(response2=> console.log(response2.data));
         alert("ajout réussi");
       }else {

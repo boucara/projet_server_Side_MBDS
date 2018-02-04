@@ -16,7 +16,15 @@ Pour lancer le serveur il faut :
     -  Ouvrir une troixième invite de commandes
     -  Aller dans projet_server_Side_MBDS/
     -  Ecécuter la commande  "mongoimport --db test --collection videos --jsonArray --drop --file data_video.json"
-
+Calcule du vote pour une vidéo: 
+    - Le premier étoile vaut 1point
+    -Le deuxiéme  vaut 2points
+    -Le troisiéme vaut 3 points
+    -Le quatriéme vaut 4points
+    -Le cinquiéme vaut 5points
+    -Le vote totale = Somme des points des étoiles voter/5 + l'ancien vote de la vidéo dans la base de donner 
+    
+    
 Cahier des charges:
 
 Description générale
