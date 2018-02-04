@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {VideoService} from "../video.service";
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-lecturevideo',
@@ -18,6 +19,7 @@ export class LecturevideoComponent implements OnInit {
  mycouleur3:string;
  mycouleur4:string;
  mycouleur5:string;
+ 
  
  
  constructor(private route: ActivatedRoute , private videoService:VideoService,private sanitizer: DomSanitizer) { 
@@ -57,7 +59,12 @@ export class LecturevideoComponent implements OnInit {
     this.mycouleur5='red';
    }
    
-  
+  voteTotal(){
+    if(this.mycouleur1=='red'){
+
+    }
+    
+  }
    
 
   
